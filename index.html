@@ -67,13 +67,13 @@
                                 <label for="ricerca">
                                     <i class="fa fa-search" aria-hidden="ture"></i>
                                 </label>
-                                <input id="ricerca" type="search">
+                                <input id="ricerca" type="search" v-model="searchText" @keyup="searchName">
                             </div>
                         </div>
                         <!-- main contenente la lista delle chat -->
                         <main class="chat-list">
                             <!-- div contenente la chat -->
-                            <div class="chat" v-for="(utente,index) in contacts">
+                            <div class="chat" v-for="(utente,index) in contacts" :class="utente.visible === false ? 'notVisible' : ''"  @click="changeChat(index)">
                                 <!-- div contenente l'immagine di profilo della chat -->
                                 <div class="img-chat">
                                     <img class="foto" :src=`img/avatar${utente.avatar}.jpg`  alt="">
@@ -129,8 +129,8 @@
                         <!-- div contenente la chat-box -->
                         <div class="chat-box">
                             <!-- div per il mio messaggio -->
-                            <div class="message" v-for="(curMes,index) in contacts[0].messages" 
-                            :class="curMes.status === 'sent' ? 'my_message' : 'friend_message' ">
+                            <div class="message" v-for="(curMes,index) in contacts[activeIndex].messages" 
+                            :class="curMes.status === 'sent' ? 'my_message' : 'friend_message'">
                                 <p>
                                     {{curMes.message}}
                                 </p>

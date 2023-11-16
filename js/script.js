@@ -167,6 +167,7 @@ const app = createApp({
                 }
             ],
             activeIndex: 0 ,
+            searchText:"",
             
         };
     },
@@ -174,7 +175,20 @@ const app = createApp({
         
     },
     methods: {
-        
+        searchName(){
+            let search = this.searchText.toLowerCase();
+            this.contacts.forEach(persona => {
+                if(persona.name.toLowerCase().includes(search)){
+                    persona.visible = true
+                }else{
+                    persona.visible = false;
+                }
+                
+            });
+        },
+        changeChat(index){
+            this.activeIndex = index;
+        }
     },
 })
 
