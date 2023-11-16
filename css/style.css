@@ -1,0 +1,264 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* RESET IMG */
+img{
+    max-width: 100%;
+}
+/* classe del body per mettere il colore dietro */
+.container-body{
+    background-size: cover;
+	background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(#009688 0%, #009688 150px, #d9dbd5 150px, #d9dbd5 100%);
+}
+/* classe per il container centrale */
+.container{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    background: #fff;
+}
+/* classe del container di sinistra  */
+.container .sinistra{
+    position: relative;
+    width: 25%;
+    background-color: white;
+}
+/* classe del container di destra */
+.container .destra{
+    position: relative;
+    background: #EAEAEA;
+    width:75%;
+    background-image: url(../img/mine.jpg);
+}
+/* header di sinistra */
+.sinistra header{
+    /* debug */
+    width: 100%;
+    background-color:#EAEAEA;
+}
+/* header di destra */
+.destra header{
+    padding: 0 2rem;
+    width: 100%;
+    background-color:#EAEAEA;
+    border-left: 1px solid lightgray;
+}
+/* classe per le notifiche */
+.notifiche{
+    width: 100%;
+    display: flex;
+    background-color: #8edafc;
+}
+.img-not{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text-not{
+    padding: 1rem;
+}
+.testo-not a{
+    color: #4F758D;
+}
+.simbolo-not{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    color: #8edafc;
+    background-color: white;
+}
+/* classe per la ricerca */
+.ricerca{
+    padding: 10px 10px;
+    background-color: #FAFAFA;
+    display: flex;
+    align-items: center;
+}
+.controllo-ricerca{
+    background-color: white;
+    padding: 3px 5px;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+.controllo-ricerca input{
+    border: 0;
+    padding: 5px;
+}
+.controllo-ricerca input:focus-visible{
+    outline: none;
+}
+/* classe per la lista delle chat */
+.chat-list{
+    /* debug */
+    overflow-y: scroll;
+    width: 100%;
+    height: 600px;
+}
+/* classe per il container dell'header */
+.container-header{
+    /* debug */
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-shrink: 0;
+    align-items: center;
+}
+.foto{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+.div-destra-header{
+    padding-right: 1rem;
+}
+.div-destra-header ul{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    list-style-type: none;
+}
+.div-destra-header li{
+    font-size: 1.5rem;
+    color: #B1B1B1;
+}
+/* classe per la chat */
+.chat{
+    /* debug */
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+}
+/* classe per l'immagine dentro la chat */
+.img-chat{
+    /* debug */
+    width: 20%;
+}
+/* classe per il testo del messaggio dentro la chat */
+.text-chat{
+    /* debug */
+    padding: 0.5rem;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+.nome-orario{
+    display: flex;
+    justify-content: space-between;
+}
+.nome-orario span{
+    color: lightgray;
+}
+.testo{
+    color: lightgray;
+}
+
+.dati-acc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.text-acc .accesso{
+    color: gray;
+}
+
+
+
+
+/* classe per la chat attuale  */
+.chat-box{
+    /* debug */
+    width: 100%;
+    position: relative;
+    padding: 2rem 3rem;
+    height: 620px;
+    overflow-y: scroll;
+}
+/* classe per il blocco del messaggio */
+.message{
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+/* modifico il paragrafo dentro il blocco del messaggio */
+.message p{
+    position: relative;
+    right: 0;
+    text-align: right;
+    max-width: 60%;
+    padding: 12px;
+    background: #dcf8c6;
+    border-radius: 10px ;
+    font-size: 15px;
+}
+/* modifico il paragrafo del messaggio dell'amico */
+.friend_message p{
+    background: #fff;
+    text-align: left;
+} 
+/* modifico il mio messaggio e lo metto tutto a destra */
+.my_message{
+    justify-content: flex-end;
+    padding-bottom: 2rem;
+}
+/* modifico il suo messaggio e lo metto tutto a sinistra */
+.friend_message{
+    justify-content: flex-start;
+    padding-bottom: 2rem;
+}
+/* classe per la parte dove scrivi un messaggio */
+.scrivi{
+    /* debug */
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+    background-color: #F3EEEA;
+    justify-content: space-evenly;
+}
+/* classe per il container delle emoji */
+.emoji{
+    /* debug */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    font-size: 3rem;
+    color:#6B7376 ;
+}
+/* classe per il container del blocco dove puoi scrivere un messaggio */
+.scrivi-mex{
+    /* debug */
+    display: flex;
+    align-items: center;
+    width: 65%;
+}
+.scrivi-mex input{
+    border: 0;
+    padding: 1rem 0;
+    padding-right: 80%;
+}
+/* classe per il container del vocale */
+.vocale{
+    /* debug */
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color:#6B7376 ;
+}

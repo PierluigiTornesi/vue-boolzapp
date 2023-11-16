@@ -1,0 +1,58 @@
+/* DESKTOP FIRST */
+/* BREAKEPOINT 991PX */
+@media screen and (max-width:991px) {
+    /* metto in display none le cose che non voglio vedere quando si restringe lo schermo */
+    .div-destra-header, .notifiche, .ricerca, .text-chat{
+        display: none;
+    }
+    /* diminuisco la larghezza del blocco principale di sinistra */
+    .container .sinistra{
+        width: 10%;
+    }
+    /* aumento la larghezza del blocco principale di destra */
+    .container .destra{
+        width: 90%;
+    }
+    /* faccio si che le immagini del blocco di sinistra riempano il blocco */
+    .div-sinistra-header, .img-chat {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 1rem;
+    }
+    /* aumento l'altezza della lista delle chat */
+    .chat-list{
+       height: 740px;
+    }
+    .chat-box{
+        height: 710px;
+    }
+    .img-chat{
+        padding: 1rem 0;
+    }
+    /* aumento la larghezza del blocco contenente la foto e il nome nella chat attuale */
+    .foto-nome{
+        width: 60%;
+    }
+    /* aumento la larghezza del contenitore dei simboli */
+    .simboli-chat{
+        width: 35%;
+    }
+    .container{
+        width: 100%;
+        height: 100vh;
+    }
+}
+/* BREAKEPOINT 540PX */
+@media screen and (max-width:540px){
+    /* tolgo dalla visualizzazione queste parti */
+    .sinistra, .emoji, .vocale , .simboli-chat{
+        display: none;
+    }
+    /* aumento la larghezza di questi blocchi per riempire le parti che ho tolto */
+    .container .destra,.scrivi-mex, .foto-nome{
+        width: 100%;
+    }
+    
+}
