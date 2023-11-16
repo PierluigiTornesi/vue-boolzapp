@@ -165,7 +165,8 @@ const app = createApp({
                         }
                     ],
                 }
-            ]
+            ],
+            activeIndex: 0 ,
             
         };
     },
