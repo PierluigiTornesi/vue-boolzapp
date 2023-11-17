@@ -172,12 +172,12 @@ const app = createApp({
             activeIndex: 0 ,
             searchText:"",
             myMess:{
-                date:"",
+                date:'',
                 message:"",
                 status: 'sent'
             },
             rispOther:{
-                date:"",
+                date:'',
                 message:"ok",
                 status: 'received'
             },
@@ -207,17 +207,23 @@ const app = createApp({
         },
         dateNoSec(fulldate){
             const luxonDate = dt.fromFormat(fulldate,"dd/MM/yyyy HH:mm:ss");
-            return luxonDate.toFormat("dd/MM/yyyy HH:mm");
+            return luxonDate.toFormat("dd/MM/yyyy HH:mm:ss");
         },
         sentMess(){
             if(this.myMess.message !== ""){
+                const timeNow = dt.now().setLocale("it").toFormat("dd/MM/yyyy HH:mm:ss");
+                this.myMess.date = timeNow;
                 this.contacts[this.activeIndex].messages.push({...this.myMess});
                 this.myMess.message = "";
+                this.myMess.date = "";
                 const myTimeout = setTimeout(this.sendRisp,1000)
             }
         },
         sendRisp(){
+            const timeNow = dt.now().setLocale("it").toFormat("dd/MM/yyyy HH:mm:ss");
+            this.rispOther.date = timeNow;
             this.contacts[this.activeIndex].messages.push({...this.rispOther});
+            this.rispOther.date = "";
         },
     },
 })
