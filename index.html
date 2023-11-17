@@ -76,16 +76,16 @@
                             <div class="chat" v-for="(utente,index) in contacts" :class="utente.visible === false ? 'notVisible' : ''"  @click="changeChat(index)">
                                 <!-- div contenente l'immagine di profilo della chat -->
                                 <div class="img-chat">
-                                    <img class="foto" :src=`img/avatar${utente.avatar}.jpg`  alt="">
+                                    <img class="foto" :src="`img/avatar${utente.avatar}.jpg`"  alt="`${utente.name}`">
                                 </div>
                                 <!-- div contenente l'ultimo messaggio arrivato della chat -->
                                 <div class="text-chat">
                                     <div class="nome-orario">
                                         <h3>{{utente.name}}</h3>
-                                        <span>16:15</span>
+                                        <span>{{utente.messages[utente.messages.length - 1].date}}</span>
                                     </div>
                                     <div class="testo">
-                                        <p>Lorem ipsum dolor sit amet</p>
+                                        <p>{{utente.messages[utente.messages.length - 1].message}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -99,14 +99,14 @@
                             <div class="container-header">
                                 <div class="dati-acc">
                                     <div class="foto-acc">
-                                        <img class="foto" src="img/avatar_io.jpg" alt="">
+                                        <img class="foto" :src="`img/avatar${contacts[activeIndex].avatar}.jpg`" alt="">
                                     </div>
                                     <div class="text-acc">
                                         <div class="nome">
-                                            <h3>Carlo</h3>
+                                            <h3>{{contacts[activeIndex].name}}</h3>
                                         </div>
                                         <div class="accesso">
-                                            <p>Ultimo accesso oggi alle 16:26</p>
+                                            <p>Ultimo accesso {{contacts[activeIndex].messages[contacts[activeIndex].messages.length - 1].date}}</p>
                                         </div>
                                     </div>
                                 </div>

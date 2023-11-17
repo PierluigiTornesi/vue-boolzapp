@@ -168,7 +168,6 @@ const app = createApp({
             ],
             activeIndex: 0 ,
             searchText:"",
-            
         };
     },
     created(){
