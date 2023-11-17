@@ -82,7 +82,7 @@
                                 <div class="text-chat">
                                     <div class="nome-orario">
                                         <h3>{{utente.name}}</h3>
-                                        <span>{{utente.messages[utente.messages.length - 1].date}}</span>
+                                        <span>{{dateToDayMonthYear(  utente.messages[utente.messages.length - 1].date)}}</span>
                                     </div>
                                     <div class="testo">
                                         <p>{{utente.messages[utente.messages.length - 1].message}}</p>
@@ -106,7 +106,7 @@
                                             <h3>{{contacts[activeIndex].name}}</h3>
                                         </div>
                                         <div class="accesso">
-                                            <p>Ultimo accesso {{contacts[activeIndex].messages[contacts[activeIndex].messages.length - 1].date}}</p>
+                                            <p>Ultimo accesso {{dateNoSec(contacts[activeIndex].messages[contacts[activeIndex].messages.length - 1].date)}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -144,7 +144,7 @@
                             </div>
                             <!-- div per la parte dove puoi scrivere il messaggio -->
                             <div class="scrivi-mex">
-                                <input type="text" name="" id="" placeholder="Scrivi un messaggio">
+                                <input type="text" name="" id="" placeholder="Scrivi un messaggio" @keyup.enter="sentMess" v-model="myMess.message">
                             </div>
                             <!-- div per il simbolo del vocale -->
                             <div class="vocale">
@@ -155,6 +155,11 @@
                 </div>
             </div>
         </div>
+        <!-- script luxon -->
+        <script src="
+        https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js">
+        </script>
+        <!-- script js -->
         <script src="js/script.js"></script>
     </body>
 </html>

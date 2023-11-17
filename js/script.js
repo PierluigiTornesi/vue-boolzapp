@@ -1,5 +1,8 @@
 const {createApp} = Vue;
 
+const dt = luxon.DateTime;
+
+
 const app = createApp({
     data(){
         return{
@@ -168,6 +171,16 @@ const app = createApp({
             ],
             activeIndex: 0 ,
             searchText:"",
+            myMess:{
+                date:"",
+                message:"",
+                status: 'sent'
+            },
+            rispOther:{
+                date:"",
+                message:"ok",
+                status: 'received'
+            },
         };
     },
     created(){
@@ -187,7 +200,25 @@ const app = createApp({
         },
         changeChat(index){
             this.activeIndex = index;
-        }
+        },
+        dateToDayMonthYear(fulldate){
+            const luxonDate = dt.fromFormat(fulldate,"dd/MM/yyyy HH:mm:ss");
+            return luxonDate.toFormat("dd/MM/yyyy");
+        },
+        dateNoSec(fulldate){
+            const luxonDate = dt.fromFormat(fulldate,"dd/MM/yyyy HH:mm:ss");
+            return luxonDate.toFormat("dd/MM/yyyy HH:mm");
+        },
+        sentMess(){
+            if(this.myMess.message !== ""){
+                this.contacts[this.activeIndex].messages.push({...this.myMess});
+                this.myMess.message = "";
+                const myTimeout = setTimeout(this.sendRisp,1000)
+            }
+        },
+        sendRisp(){
+            this.contacts[this.activeIndex].messages.push({...this.rispOther});
+        },
     },
 })
 
