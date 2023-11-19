@@ -259,12 +259,10 @@ img{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3rem;
+    font-size: 2rem;
     color:#6B7376 ;
 }
-
-
-
+/* classe per nascondere */
 .notVisible{
     display: none;
 }

@@ -144,11 +144,18 @@
                             </div>
                             <!-- div per la parte dove puoi scrivere il messaggio -->
                             <div class="scrivi-mex">
-                                <input type="text" name="" id="" placeholder="Scrivi un messaggio" @keyup.enter="sentMess" v-model="myMess.message">
+                                <input type="text" name="" id="" placeholder="Scrivi un messaggio" @keyup.enter="sentMess" v-model="myMess.message" @click="changeSendingMess">
                             </div>
                             <!-- div per il simbolo del vocale -->
                             <div class="vocale">
-                                <i class="fa-solid fa-microphone"></i>
+                                <span :class="sendingMessage === false ? '' : 'notVisible'">
+                                    <i class="fa-solid fa-microphone" ></i>
+                                </span>
+                            </div>
+                            <div class="vocale"  @click="sentMess">
+                                <span :class="sendingMessage === false ? 'notVisible' : ''"> 
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </span>
                             </div>
                         </div>
                     </div>

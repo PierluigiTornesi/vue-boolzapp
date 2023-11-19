@@ -181,6 +181,7 @@ const app = createApp({
                 message:"ok",
                 status: 'received'
             },
+            sendingMessage: false,
         };
     },
     created(){
@@ -216,6 +217,7 @@ const app = createApp({
                 this.contacts[this.activeIndex].messages.push({...this.myMess});
                 this.myMess.message = "";
                 this.myMess.date = "";
+                this.sendingMessage = false;
                 const myTimeout = setTimeout(this.sendRisp,1000)
             }
         },
@@ -225,6 +227,10 @@ const app = createApp({
             this.contacts[this.activeIndex].messages.push({...this.rispOther});
             this.rispOther.date = "";
         },
+        changeSendingMess(){
+            this.sendingMessage = true;
+        }
+
     },
 })
 
