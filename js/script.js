@@ -176,12 +176,40 @@ const app = createApp({
                 message:"",
                 status: 'sent'
             },
-            rispOther:{
-                date:'',
-                message:"ok",
-                status: 'received'
-            },
+            // rispOther:{
+            //     date:'',
+            //     message:"ok",
+            //     status: 'received'
+            // },
+            rispListOther:[
+                {
+                    date:'',
+                    message:"va benissimo",
+                    status: 'received'  
+                },
+                {
+                    date:'',
+                    message:"ok, grande!!!",
+                    status: 'received'
+                },
+                {
+                    date:'',
+                    message:"tutto chiaro!!!",
+                    status: 'received'
+                },
+                {
+                    date:'',
+                    message:"vai uomo!!!",
+                    status: 'received'  
+                },
+                {
+                    date:'',
+                    message:"siummmmmm",
+                    status: 'received'  
+                },
+            ],
             sendingMessage: false,
+            numberRandom: 0,
         };
     },
     created(){
@@ -218,17 +246,29 @@ const app = createApp({
                 this.myMess.message = "";
                 this.myMess.date = "";
                 this.sendingMessage = false;
-                const myTimeout = setTimeout(this.sendRisp,1000)
+                const myTimeout = setTimeout(this.sendListRisp,1000)
             }
         },
-        sendRisp(){
+        //funzione che restituisce soltanto ok come risposta dal pc usando rispOther dentro data
+        // sendRisp(){
+        //     const timeNow = dt.now().setLocale("it").toFormat("dd/MM/yyyy HH:mm:ss");
+        //     this.rispOther.date = timeNow;
+        //     this.contacts[this.activeIndex].messages.push({...this.rispOther});
+        //     this.rispOther.date = "";
+        // },
+        //funzione che da una lista di risposte ne prende una casuale e la restituisce 
+        sendListRisp(){
             const timeNow = dt.now().setLocale("it").toFormat("dd/MM/yyyy HH:mm:ss");
-            this.rispOther.date = timeNow;
-            this.contacts[this.activeIndex].messages.push({...this.rispOther});
-            this.rispOther.date = "";
+            const indexList =  this.generateRandomNumber();
+            this.rispListOther[indexList].date = timeNow;
+            this.contacts[this.activeIndex].messages.push({...this.rispListOther[indexList]});
+            this.rispListOther[indexList].date = "";
         },
         changeSendingMess(){
             this.sendingMessage = true;
+        },
+        generateRandomNumber(){
+            return this.numberRandom = Math.floor(Math.random() * (4 - 0 + 1) + 0);
         }
 
     },
