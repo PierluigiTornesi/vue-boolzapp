@@ -211,7 +211,7 @@ const app = createApp({
             return luxonDate.toFormat("dd/MM/yyyy HH:mm:ss");
         },
         sentMess(){
-            if(this.myMess.message !== ""){
+            if(this.myMess.message.trim() !== ""){
                 const timeNow = dt.now().setLocale("it").toFormat("dd/MM/yyyy HH:mm:ss");
                 this.myMess.date = timeNow;
                 this.contacts[this.activeIndex].messages.push({...this.myMess});
